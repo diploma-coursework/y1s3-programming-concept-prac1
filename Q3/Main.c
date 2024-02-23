@@ -7,10 +7,25 @@ struct Time {
 } current, nextMin;
 
 int main() {
-	printf("Enter the current time for hours > ");
-	scanf("%d", &current.hours);
-	printf("Enter the current time for minutes > ");
-	scanf("%d", &current.minutes);
+	while (1) {
+		printf("Enter the current time for hours > ");
+		scanf("%d", &current.hours);
+		if (current.hours > 12) {
+			printf("Invalid hour, maximum is 12.\n");
+			continue;
+		}
+		break;
+	}
+
+	while (1) {
+		printf("Enter the current time for minutes > ");
+		scanf("%d", &current.minutes);
+		if (current.minutes > 59) {
+			printf("Invalid minute, maximum is 59.\n");
+			continue;
+		}
+		break;
+	}
 
 	nextMin = current;
 	if (nextMin.minutes == 59) {
